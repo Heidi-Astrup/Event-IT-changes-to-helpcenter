@@ -1,0 +1,86 @@
+<div class="container-divider"></div>
+<div class="container">
+  <div class="sub-nav">
+    {{#is section.id 201093912}}<p>brod</p>
+    {{else}}
+      {{breadcrumbs}}
+    {{/is}}
+    <div class="search-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon" aria-hidden="true">
+        <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
+        <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
+      </svg>
+      {{search scoped=settings.scoped_kb_search submit=false}}
+    </div>
+  </div>
+
+  <div class="section-container">
+    <section id="main-content" class="section-content">
+      <header class="page-header">
+        <h1>{{section.name}}</h1>
+        {{#if section.description}}
+          <p class="page-header-description">{{section.description}}</p>
+        {{/if}}
+      </header>
+
+
+
+      {{#if section.sections}}
+        <ul class="section-list">
+          {{#each section.sections}}
+          <li class="section-list-item">
+              <a href="{{url}}">
+                <span>{{name}}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 14.5l6.1-6.1c.2-.2.2-.5 0-.7L5 1.5"/>
+                </svg>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+
+      {{pagination "section.sections"}}
+
+      {{#if section.articles}}
+        <ul class="article-list" id="article-list">
+          {{#each section.articles}}
+            <li class="article-list-item">
+              <a href="{{url}}" class="article-list-link">{{title}}</a>
+              {{#if internal}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
+                  <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+                  <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                </svg>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+
+      {{pagination "section.articles"}}
+
+    </section>
+  </div>
+</div>
+
+ {{#if promoted_articles}}
+      <section class="articles">
+        <h2>{{t 'promoted_articles'}}</h2>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+                <li class="promoted-articles-item">
+                    <a href="{{url}}">
+                      {{title}}
+                      {{#if internal}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
+                          <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+                          <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                        </svg>
+                      {{/if}}
+                    </a>
+                </li>
+          {{/each}}
+        </ul>
+      </section>
+  {{/if}}

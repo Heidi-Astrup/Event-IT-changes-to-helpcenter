@@ -1,0 +1,157 @@
+<div class="container-divider"></div>
+<div class="container">
+  <div class="sub-nav">
+    {{breadcrumbs}}
+    <div class="search-container">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="12"
+        height="12"
+        focusable="false"
+        viewBox="0 0 12 12"
+        class="search-icon"
+        aria-hidden="true"
+      >
+        <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor" />
+        <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5" />
+      </svg>
+      {{search scoped=settings.scoped_kb_search submit=false}}
+    </div>
+  </div>
+
+  <div class="category-container">
+    <div class="category-content">
+      <header class="page-header">
+        <h1>{{category.name}}</h1>
+        {{!--{{#if category.description}}
+          <p class="page-header-description">{{category.description}}</p>
+        {{/if}}--}}
+      </header>
+      <p>Vælg den kategori du har brug for hjælp inden for</p>
+
+      <div id="main-content" class="section-tree">
+        {{#each sections}}
+          <a href="{{url}}">
+            <section class="section">
+              <!--Images for categories - category Page -->
+              {{#is id 27090066506908}}<img
+                  class="category-icon"
+                  src="{{asset 'hardware.svg'}}"
+                  alt="ikon til hardware"
+                />{{/is}}
+              {{#is id 27088171724828}}<img
+                  class="category-icon"
+                  src="{{asset 'komGodtIGang.svg'}}"
+                  alt="ikon til kom godt i gang"
+                />{{/is}}{{#is id 27088218679452}}<img
+                  class="category-icon"
+                  src="{{asset 'administrator.svg'}}"
+                  alt="ikon til arrangørkonto"
+                />{{/is}}
+              {{#is id 27088219507996}}<img
+                  class="category-icon"
+                  src="{{asset 'GDPR.svg'}}"
+                  alt="ikon til GDPR"
+                />{{/is}}{{#is id 27088243446556}}<img
+                  class="category-icon"
+                  src="{{asset 'deltager.svg'}}"
+                  alt="ikon til deltager"
+                />{{/is}}
+              {{#is id 27088259930652}}<img
+                  class="category-icon"
+                  src="{{asset 'billet.svg'}}"
+                  alt="ikon til billet"
+                />{{/is}}
+              {{#is id 27088236910236}}<img
+                  class="category-icon"
+                  src="{{asset 'okonomi.svg'}}"
+                  alt="ikon til Økonomi"
+                />{{/is}}
+              {{#is id 27088230003228}}<img
+                  class="category-icon"
+                  src="{{asset 'komGodtIGang.svg'}}"
+                  alt="ikon til kom godt i gang"
+                />{{/is}}
+              {{#is id 27088291241756}}<img
+                  class="category-icon"
+                  src="{{asset 'hardware.svg'}}"
+                  alt="ikon til hardware"
+                />{{/is}}
+              {{#is id 27088268436124}}<img
+                  class="category-icon"
+                  src="{{asset 'administrator.svg'}}"
+                  alt="ikon til administrator"
+                />{{/is}}
+              {{#is id 27088314163996}}<img
+                  class="category-icon"
+                  src="{{asset 'okonomi.svg'}}"
+                  alt="ikon til medlemskort"
+                />{{/is}}
+              {{#is id 27088266838172}}<img
+                  class="category-icon"
+                  src="{{asset 'medlemmer.svg'}}"
+                  alt="ikon til medlemmer og hold"
+                />{{/is}}
+              {{#is id 27088310697244}}<img
+                  class="category-icon"
+                  src="{{asset 'okonomi.svg'}}"
+                  alt="ikon til økonomi"
+                />{{/is}}
+              <!--End images for categories -->
+              <h2 class="section-tree-title">
+                {{name}}
+              </h2>
+              {{!--{{#if articles}}
+              <ul class="article-list">
+                {{#each articles}}
+                  <li class="article-list-item{{#if promoted}} article-promoted{{/if}}">
+                    {{#if promoted}}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="icon-star" title="{{t 'promoted'}}">
+                        <path fill="currentColor" d="M2.88 11.73c-.19 0-.39-.06-.55-.18a.938.938 0 01-.37-1.01l.8-3L.35 5.57a.938.938 0 01-.3-1.03c.12-.37.45-.63.85-.65L4 3.73 5.12.83c.14-.37.49-.61.88-.61s.74.24.88.6L8 3.73l3.11.17a.946.946 0 01.55 1.68L9.24 7.53l.8 3a.95.95 0 01-1.43 1.04L6 9.88l-2.61 1.69c-.16.1-.34.16-.51.16z"/>
+                      </svg>
+                    {{/if}}
+                    <a href="{{url}}" class="article-list-link">{{title}}</a>
+                    {{#if internal}}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
+                        <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+                        <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                      </svg>
+                    {{/if}}
+                  </li>
+                {{/each}}
+              </ul>
+              {{#if more_articles}}
+                <a href="{{url}}" class="see-all-articles">
+                  {{t 'show_all_articles' count=article_count}}
+                </a>
+              {{/if}}
+            {{/if}}--}}
+            </section>
+          </a>
+
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+ {{#if promoted_articles}}
+      <section class="articles">
+        <h2>{{t 'promoted_articles'}}</h2>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+                <li class="promoted-articles-item">
+                    <a href="{{url}}">
+                      {{title}}
+                      {{#if internal}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
+                          <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+                          <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                        </svg>
+                      {{/if}}
+                    </a>
+                </li>
+          {{/each}}
+        </ul>
+      </section>
+  {{/if}}
