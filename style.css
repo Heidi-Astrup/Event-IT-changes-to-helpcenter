@@ -5552,3 +5552,31 @@ zd-summary-block {
 .accordion-item.open .accordion-icon {
   transform: rotate(180deg);
 }
+
+/* Styling af chatbot*/
+/* Hide default Zendesk launcher */
+#launcher {
+  display: none !important;
+}
+
+/* Custom launcher */
+#eventit-launcher {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  width: 120px;
+  height: auto;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+  background: $red_color;
+  color: $background_color;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 999999;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+#eventit-launcher:hover {
+  opacity: 0.9;
+}

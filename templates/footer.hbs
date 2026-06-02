@@ -43,11 +43,18 @@
       </div>
     </div>
   </div>
+
+  <button id="eventit-launcher">
+    <p>Kontakt os</p>
+  </button>
+
 </footer>
+
 
 <script>
 window.addEventListener('load', function () {
 
+  // Send current URL to Zendesk
   function setZendeskFields() {
     if (window.zE) {
       zE('messenger:set', 'conversationFields', [
@@ -62,6 +69,56 @@ window.addEventListener('load', function () {
   }
 
   setZendeskFields();
+
+  const launcher = document.getElementById('eventit-launcher');
+
+  let isOpen = false;
+
+  if (launcher) {
+
+    launcher.addEventListener('click', function (e) {
+
+      e.stopPropagation();
+
+      if (!window.zE) return;
+
+      if (isOpen) {
+        zE('messenger', 'close');
+      } else {
+        zE('messenger', 'open');
+      }
+    });
+
+    zE('messenger:on', 'open', function () {
+      isOpen = true;
+    });
+
+    zE('messenger:on', 'close', function () {
+      isOpen = false;
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+
+      if (!isOpen) return;
+
+      const launcherClicked = launcher.contains(e.target);
+
+      const messengerIframe =
+        document.querySelector('iframe[id*="messenger"]') ||
+        document.querySelector('iframe[title*="messaging"]');
+
+      const clickedMessenger =
+        messengerIframe &&
+        messengerIframe === e.target;
+
+      if (!launcherClicked && !clickedMessenger) {
+        zE('messenger', 'close');
+      }
+
+    });
+
+  }
 
 });
 </script>

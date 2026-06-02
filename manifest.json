@@ -63,6 +63,13 @@
           "description": "grey_color_description",
           "label": "grey_color_label",
           "value": "#d9d9d9"
+        },
+        {
+          "identifier": "red_color",
+          "type": "color",
+          "description": "red_color_description",
+          "label": "red_color_label",
+          "value": "#b80000"
         }
       ]
     },
