@@ -44,3 +44,24 @@
     </div>
   </div>
 </footer>
+
+<script>
+window.addEventListener('load', function () {
+
+  function setZendeskFields() {
+    if (window.zE) {
+      zE('messenger:set', 'conversationFields', [
+        {
+          id: '27762678061724',
+          value: window.location.href
+        }
+      ]);
+    } else {
+      setTimeout(setZendeskFields, 1000);
+    }
+  }
+
+  setZendeskFields();
+
+});
+</script>

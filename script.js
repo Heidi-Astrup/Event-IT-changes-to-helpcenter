@@ -730,6 +730,37 @@ function initMobileToc() {
   });
 }
 
+/*
+window.addEventListener("load", function () {
+  if (window.zE) {
+    zE('messenger:set', 'conversationFields', [
+      {
+        id: '27762678061724', 
+        value:window.location.href
+      }]);
+  }
+});
+
+window.addEventListener('load', function () {
+
+  function setZendeskFields() {
+    if (window.zE) {
+      zE('messenger:set', 'conversationFields', [
+        {
+          id: '27762678061724',
+          value: window.location.href
+        }
+      ]);
+    } else {
+      setTimeout(setZendeskFields, 1000);
+    }
+  }
+
+  setZendeskFields();
+
+}); */
+
+
 // =========================
 // HANDLE CLICK (SCROLL + CLOSE)
 // =========================
