@@ -2089,6 +2089,7 @@ h2, h3 {
 @media (min-width: 1024px) {
   #article-list {
     column-count: 2;
+    gap: 50px;
   }
 
   .article-list-item a {
@@ -2097,6 +2098,15 @@ h2, h3 {
 
   .article-list-item a:hover {
     text-decoration: underline;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+  #article-list {
+    column-count: 2;
+    max-width: 80%;
+    gap: 50px;
   }
 }
 
