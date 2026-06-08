@@ -829,7 +829,9 @@ function buildTableOfContents() {
 
   // Overskrifter fundet = vis TOC
   if (tocContainer) tocContainer.style.display = "block";
-  if (tocMobileBar) tocMobileBar.style.display = "block";
+
+  // Nulstil mobil-TOC så CSS media query bestemmer
+  if (tocMobileBar) tocMobileBar.style.display = "";
 
   // Lav IDs hvis mangler
   headings.forEach((heading, index) => {
