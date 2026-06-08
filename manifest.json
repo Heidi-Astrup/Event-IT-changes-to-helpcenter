@@ -81,7 +81,7 @@
           "type": "list",
           "description": "heading_font_description",
           "label": "heading_font_label",
-          "value": "'Montserrat', sans-serif",          
+          "value": "'Montserrat', sans-serif",
           "options": [
             {
               "label": "Montserrat",
@@ -158,7 +158,7 @@
           "type": "list",
           "description": "text_font_description",
           "label": "text_font_label",
-          "value": "'Montserrat', sans-serif",          
+          "value": "'Montserrat', sans-serif",
           "options": [
             {
               "label": "Montserrat",

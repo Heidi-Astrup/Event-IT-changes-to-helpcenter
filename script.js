@@ -791,6 +791,8 @@ function handleTocClick(headingId) {
 // BUILD TOC
 // =========================
 function buildTableOfContents() {
+  console.log("buildTableOfContents kører");
+
   const content = document.querySelector(".article-body");
   const toc = document.getElementById("toc");
   const tocMobile = document.getElementById("toc-mobile");
@@ -802,6 +804,8 @@ function buildTableOfContents() {
   if (tocMobile) tocMobile.innerHTML = "";
 
   let headings = content.querySelectorAll("h2, h3");
+
+  console.log("headings fundet:", headings.length);
 
   // Fjern dubletter (baseret på tekst)
   const seen = new Set();
@@ -824,8 +828,8 @@ function buildTableOfContents() {
   }
 
   // Overskrifter fundet = vis TOC
-  if (tocContainer) tocContainer.style.display = "";
-  if (tocMobileBar) tocMobileBar.style.display = "";
+  if (tocContainer) tocContainer.style.display = "block";
+  if (tocMobileBar) tocMobileBar.style.display = "block";
 
   // Lav IDs hvis mangler
   headings.forEach((heading, index) => {
@@ -841,17 +845,7 @@ function buildTableOfContents() {
           .replace(/[^\w-]/g, "");
     }
 
-    // Skjul TOC hvis ingen punkter blev oprettet
-    const tocContainer = document.querySelector(".toc-container");
-    const tocMobileBar = document.querySelector(".toc-mobile-bar");
-
-    if (toc && toc.children.length === 0) {
-      if (tocContainer) tocContainer.style.display = "none";
-      if (tocMobileBar) tocMobileBar.style.display = "none";
-    } else {
-      if (tocContainer) tocContainer.style.display = "";
-      if (tocMobileBar) tocMobileBar.style.display = "";
-    }
+    console.log("TOC headings found:", headings.length);
 
     const createItem = (target) => {
       const li = document.createElement("li");
@@ -871,7 +865,7 @@ function buildTableOfContents() {
 
     if (toc) createItem(toc);
     if (tocMobile) createItem(tocMobile);
-  };);
+  });
 }
 
 // Accordion on spørgsmål for køb page
