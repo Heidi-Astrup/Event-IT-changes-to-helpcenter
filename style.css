@@ -1386,7 +1386,6 @@ h3 {
 }
 
 .toc-container {
-  display: none;
   width: 30vw;
   position: sticky;
   top: 100px;
