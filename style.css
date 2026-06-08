@@ -1300,6 +1300,20 @@ ul {
   overflow-y: auto;
 }
 
+.toc-hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .toc-mobile-bar {
+    display: block;
+  }
+
+  .toc-container {
+    display: none;
+  }
+}
+
 .toc-mobile-bar {
   display: none;
   position: sticky;

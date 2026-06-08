@@ -820,18 +820,16 @@ function buildTableOfContents() {
   const tocContainer = document.querySelector(".toc-container");
   const tocMobileBar = document.querySelector(".toc-mobile-bar");
 
-  // Ingen overskrifter = skjul TOC
+  // Ingen overskrifter = skjul begge TOC'er
   if (headings.length === 0) {
-    if (tocContainer) tocContainer.style.display = "none";
-    if (tocMobileBar) tocMobileBar.style.display = "none";
+    if (tocContainer) tocContainer.classList.add("toc-hidden");
+    if (tocMobileBar) tocMobileBar.classList.add("toc-hidden");
     return;
   }
 
-  // Overskrifter fundet = vis TOC
-  if (tocContainer) tocContainer.style.display = "block";
-
-  // Nulstil mobil-TOC så CSS media query bestemmer
-  if (tocMobileBar) tocMobileBar.style.display = "";
+  // Overskrifter fundet = vis begge TOC'er igen
+  if (tocContainer) tocContainer.classList.remove("toc-hidden");
+  if (tocMobileBar) tocMobileBar.classList.remove("toc-hidden");
 
   // Lav IDs hvis mangler
   headings.forEach((heading, index) => {
