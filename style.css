@@ -1190,7 +1190,6 @@ ul {
   gap: 10px;
 }
 
-
 .footer-social img {
   max-width: 50px;
 }
@@ -1311,7 +1310,8 @@ ul {
   border-bottom: 1px solid #eee;
 }
 
-h2, h3 {
+h2,
+h3 {
   scroll-margin-top: 10vh;
 }
 
@@ -1366,12 +1366,14 @@ h2, h3 {
   .toc-mobile-content li {
     margin-top: 15px;
   }
-  h2, h3 {
+  h2,
+  h3 {
     scroll-margin-top: 20vh;
   }
 }
 
 .toc-container {
+  display: none;
   width: 30vw;
   position: sticky;
   top: 100px;
@@ -5584,7 +5586,7 @@ zd-summary-block {
   font-size: 16px;
   cursor: pointer;
   z-index: 999999;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 #eventit-launcher:hover {

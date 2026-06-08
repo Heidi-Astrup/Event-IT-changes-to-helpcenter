@@ -702,8 +702,6 @@
   });
 })();
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
   // Vent lidt så alt (inkl. accordion) er loaded
   setTimeout(() => {
@@ -760,7 +758,6 @@ window.addEventListener('load', function () {
 
 }); */
 
-
 // =========================
 // HANDLE CLICK (SCROLL + CLOSE)
 // =========================
@@ -771,7 +768,7 @@ function handleTocClick(headingId) {
   // Scroll
   heading.scrollIntoView({
     behavior: "smooth",
-    block: "start"
+    block: "start",
   });
 
   // Åbn accordion hvis relevant
@@ -815,6 +812,21 @@ function buildTableOfContents() {
     return true;
   });
 
+  // Hent TOC-elementer
+  const tocContainer = document.querySelector(".toc-container");
+  const tocMobileBar = document.querySelector(".toc-mobile-bar");
+
+  // Ingen overskrifter = skjul TOC
+  if (headings.length === 0) {
+    if (tocContainer) tocContainer.style.display = "none";
+    if (tocMobileBar) tocMobileBar.style.display = "none";
+    return;
+  }
+
+  // Overskrifter fundet = vis TOC
+  if (tocContainer) tocContainer.style.display = "";
+  if (tocMobileBar) tocMobileBar.style.display = "";
+
   // Lav IDs hvis mangler
   headings.forEach((heading, index) => {
     if (!heading.id) {
@@ -827,6 +839,18 @@ function buildTableOfContents() {
           .toLowerCase()
           .replace(/\s+/g, "-")
           .replace(/[^\w-]/g, "");
+    }
+
+    // Skjul TOC hvis ingen punkter blev oprettet
+    const tocContainer = document.querySelector(".toc-container");
+    const tocMobileBar = document.querySelector(".toc-mobile-bar");
+
+    if (toc && toc.children.length === 0) {
+      if (tocContainer) tocContainer.style.display = "none";
+      if (tocMobileBar) tocMobileBar.style.display = "none";
+    } else {
+      if (tocContainer) tocContainer.style.display = "";
+      if (tocMobileBar) tocMobileBar.style.display = "";
     }
 
     const createItem = (target) => {
@@ -847,14 +871,8 @@ function buildTableOfContents() {
 
     if (toc) createItem(toc);
     if (tocMobile) createItem(tocMobile);
-  });
+  };);
 }
-
-
-
-
-
-
 
 // Accordion on spørgsmål for køb page
 document.addEventListener("DOMContentLoaded", function () {
